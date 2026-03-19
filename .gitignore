@@ -1,0 +1,23 @@
+# API Keys & sensitive settings
+settings.json
+settings.local.json
+
+# Agent flags
+.grok-enabled
+.openai-enabled
+
+# Claude internals
+history.jsonl
+mcp-needs-auth-cache.json
+sessions/
+cache/
+downloads/
+file-history/
+shell-snapshots/
+backups/
+plans/
+projects/
+ide/
+
+# Memory
+memory/

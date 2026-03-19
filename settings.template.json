@@ -1,0 +1,21 @@
+{
+  "autoUpdatesChannel": "latest",
+  "env": {
+    "XAI_API_KEY": "HIER_XAI_KEY_EINSETZEN",
+    "OPENAI_API_KEY": "HIER_OPENAI_KEY_EINSETZEN"
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node C:/Users/DEIN_USERNAME/.claude/agents_hook.js",
+            "timeout": 35,
+            "statusMessage": "Grok & ChatGPT denken nach..."
+          }
+        ]
+      }
+    ]
+  }
+}
