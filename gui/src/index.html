@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Claude Multi-Agent</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="/main.js" defer></script>
+  </head>
+  <body>
+    <div class="app">
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="logo">
+          <span class="logo-icon">⚡</span>
+          <span class="logo-text">Multi-Agent</span>
+        </div>
+
+        <section class="section">
+          <h3>Agents</h3>
+          <div id="agents-list">
+            <div class="agent-item loading">Loading...</div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>API Keys</h3>
+          <div class="key-group">
+            <label>xAI (Grok)</label>
+            <input type="password" id="xai-key" placeholder="xai-..." autocomplete="off" />
+          </div>
+          <div class="key-group">
+            <label>OpenAI</label>
+            <input type="password" id="openai-key" placeholder="sk-..." autocomplete="off" />
+          </div>
+          <button id="save-keys" class="btn-save">Save Keys</button>
+          <div id="save-msg" class="save-msg"></div>
+        </section>
+
+        <section class="section">
+          <h3>Claude Code Hook</h3>
+          <div id="hook-status" class="hook-status">
+            <span class="dot dot-off"></span>
+            <span>Checking...</span>
+          </div>
+          <p class="hint">When active, Grok & ChatGPT answer every Claude prompt automatically.</p>
+        </section>
+      </aside>
+
+      <!-- Main -->
+      <main class="main">
+        <div class="prompt-area">
+          <textarea id="prompt" placeholder="Ask all agents something..." rows="3"></textarea>
+          <button id="send-btn" class="btn-send">
+            <span id="send-label">Ask All</span>
+            <span id="send-spinner" class="spinner hidden"></span>
+          </button>
+        </div>
+
+        <div class="results">
+          <div class="result-card" id="card-grok">
+            <div class="card-header">
+              <span class="agent-badge grok">Grok</span>
+              <span class="card-model">grok-3-mini-fast</span>
+            </div>
+            <div class="card-body" id="result-grok">
+              <span class="placeholder">Waiting for prompt...</span>
+            </div>
+          </div>
+
+          <div class="result-card" id="card-openai">
+            <div class="card-header">
+              <span class="agent-badge openai">ChatGPT</span>
+              <span class="card-model">gpt-4o-mini</span>
+            </div>
+            <div class="card-body" id="result-openai">
+              <span class="placeholder">Waiting for prompt...</span>
+            </div>
+          </div>
+        </div>
+      </main>
+
+    </div>
+  </body>
+</html>
