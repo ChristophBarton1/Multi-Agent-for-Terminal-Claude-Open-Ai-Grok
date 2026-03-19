@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "GROK Agent",
+      "type": "shell",
+      "command": "node",
+      "args": [
+        "${env:USERPROFILE}\\.claude\\grok_task_runner.js",
+        "${input:task}",
+        "${env:USERPROFILE}\\.claude\\task_results\\grok_result.txt"
+      ],
+      "presentation": {
+        "panel": "new",
+        "group": "agents",
+        "reveal": "always",
+        "title": "🤖 GROK"
+      },
+      "runOptions": { "runOn": "default" }
+    },
+    {
+      "label": "CLAUDE Collector",
+      "type": "shell",
+      "command": "node",
+      "args": [
+        "${env:USERPROFILE}\\.claude\\claude_collector_grok.js",
+        "${env:USERPROFILE}\\.claude\\task_results\\grok_result.txt",
+        "${input:task}"
+      ],
+      "presentation": {
+        "panel": "new",
+        "group": "agents",
+        "reveal": "always",
+        "title": "⚡ CLAUDE Collector"
+      }
+    },
+    {
+      "label": "🚀 Multi-Agent START",
+      "dependsOn": ["GROK Agent", "CLAUDE Collector"],
+      "dependsOrder": "parallel",
+      "presentation": {
+        "reveal": "silent"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "task",
+      "type": "promptString",
+      "description": "Was sollen Grok & Claude analysieren?",
+      "default": "Analysiere online-lernen.live und gib Verbesserungsvorschlaege"
+    }
+  ]
+}
