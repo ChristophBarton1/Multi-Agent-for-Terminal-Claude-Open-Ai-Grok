@@ -1,6 +1,7 @@
 # API Keys & sensitive settings
 settings.json
 settings.local.json
+.credentials.json
 
 # Agent flags
 .grok-enabled
@@ -18,6 +19,11 @@ backups/
 plans/
 projects/
 ide/
+paste-cache/
+plugins/
+
+# Task results (temporär)
+task_results/
 
 # Memory
 memory/
