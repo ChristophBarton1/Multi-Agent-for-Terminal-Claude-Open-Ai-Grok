@@ -1,0 +1,22 @@
+{
+  "name": "claude-multi-agent",
+  "version": "1.0.0",
+  "description": "Run Claude, ChatGPT and Grok in parallel — as a Claude Code hook or split-terminal task runner",
+  "keywords": ["claude", "openai", "grok", "multi-agent", "llm", "terminal", "claude-code"],
+  "author": "ChristophBarton1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChristophBarton1/Multi-Agent-for-Terminal-Claude-Open-Ai-Grok.git"
+  },
+  "bin": {
+    "claude-multi-agent": "./bin/cli.js"
+  },
+  "files": [
+    "bin/",
+    "src/"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}

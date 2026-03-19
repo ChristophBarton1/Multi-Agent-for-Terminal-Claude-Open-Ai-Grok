@@ -1,29 +1,3 @@
-# API Keys & sensitive settings
-settings.json
-settings.local.json
-.credentials.json
-
-# Agent flags
-.grok-enabled
-.openai-enabled
-
-# Claude internals
-history.jsonl
-mcp-needs-auth-cache.json
-sessions/
-cache/
-downloads/
-file-history/
-shell-snapshots/
-backups/
-plans/
-projects/
-ide/
-paste-cache/
-plugins/
-
-# Task results (temporär)
-task_results/
-
-# Memory
-memory/
+node_modules/
+*.log
+.npmrc
