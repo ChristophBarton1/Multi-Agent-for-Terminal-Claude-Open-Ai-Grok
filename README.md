@@ -20,7 +20,7 @@
 
 Different LLMs notice different things. This project wires ChatGPT and Grok into [Claude Code](https://claude.ai/code) so that every prompt you send to Claude is also answered by the other models in the background, and their answers arrive in Claude's context as a system message. Claude stays the orchestrator and builds on a second and third opinion without you copy-pasting between chat windows. For longer jobs there is a split-terminal mode that runs each agent in its own pane and merges the results.
 
-## ✨ Features
+## Features
 
 - **Claude Code hook mode**: a `UserPromptSubmit` hook dispatches your prompt to all enabled agents **in parallel** and injects their answers into Claude as a `systemMessage` (with per-agent timeouts so Claude is never blocked).
 - **Split-terminal task mode**: opens Windows Terminal panes for Grok, ChatGPT and a Claude collector that waits for both results and combines them.
@@ -30,7 +30,7 @@ Different LLMs notice different things. This project wires ChatGPT and Grok into
 - **Excel export** (`auto_excel.js`) that turns agent results into a spreadsheet (requires `npm install xlsx`).
 - **Desktop GUI (work in progress)**: a Tauri 2 app to toggle agents, manage API keys, check hook status and query Grok/OpenAI directly.
 
-## 🧱 Tech stack
+## Tech stack
 
 | Area | Technology |
 | --- | --- |
@@ -41,7 +41,7 @@ Different LLMs notice different things. This project wires ChatGPT and Grok into
 | GUI (WIP) | Tauri 2 (Rust backend) + vanilla HTML/CSS/JS |
 | Extras | `xlsx` for the Excel export, optional Python variant of the Grok hook |
 
-## 🏗️ How it works
+## How it works
 
 ```mermaid
 flowchart TD
@@ -56,7 +56,7 @@ flowchart TD
 
 In **task mode**, `multi_agent_task.js` writes the task to `~/.claude/task_results/`, starts `grok_task_runner.js` and `chatgpt_task_runner.js` in separate panes, and `claude_collector.js` polls for their result files and combines them.
 
-## 🚀 Getting started
+## Getting started
 
 **Prerequisites:** [Claude Code](https://claude.ai/code), Node.js 18+, [Windows Terminal](https://aka.ms/terminal) (for split-terminal mode), and API keys from [xAI](https://console.x.ai/) and/or [OpenAI](https://platform.openai.com/).
 
@@ -90,7 +90,7 @@ node bin/cli.js agents grok off        # disable again
 
 (Equivalent: `node ~/.claude/agents.js grok on`.)
 
-## 🧭 Usage
+## Usage
 
 **Mode 1: Hook (automatic).** Use Claude Code as usual. On every prompt Grok and ChatGPT are queried in the background; a status message appears while they think.
 
@@ -129,7 +129,7 @@ npm install
 npm run tauri dev
 ```
 
-## 📁 Project structure
+## Project structure
 
 | Path | Description |
 | --- | --- |
